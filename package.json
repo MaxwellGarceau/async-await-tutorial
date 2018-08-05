@@ -1,0 +1,22 @@
+{
+  "name": "async-await",
+  "version": "1.0.0",
+  "description": "This is code from a tutorial on async/await. This is part of The Complete Node.js Developer Course v2.",
+  "main": "app-promises.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxwellGarceau/async-await-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxwellGarceau/async-await-tutorial/issues"
+  },
+  "homepage": "https://github.com/MaxwellGarceau/async-await-tutorial#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
