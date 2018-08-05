@@ -31,10 +31,24 @@ const getCountries = async (currencyCode) => {
   return response.data.map((country) => country.name);
 };
 
-getExchangeRate('USD', 'CAD').then((rate) => {
-  console.log(rate);
-});
+// const convertCurrency = (from, to, amount) => {
+//   let convertedAmount;
+//   return getExchangeRate(from, to).then((rate) => {
+//     convertedAmount = (amount * rate).toFixed(2);
+//     return getCountries(to);
+//   }).then((countries) => {
+//     return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in the following countries: ${countries.join(', ')}`;
+//   });
+// };
 
-getCountries('USD').then((countries) => {
-  console.log(countries);
+const convertCurrency = async (from, to, amount) => {
+  const exchangeRate = await getExchangeRate(from, to);
+  const countries = await getCountries(to);
+  
+  const convertedAmount = (amount * exchangeRate).toFixed(2);
+  return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in the following countries: ${countries.join(', ')}`;
+};
+
+convertCurrency('USD', 'CAD', 20).then((message) => {
+  console.log(message);
 });
